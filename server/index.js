@@ -1,19 +1,20 @@
 const express = require('express');
 const next = require('next');
-
 const dev = process.env.NODE_ENV !== 'production'
 
 const app = next({dev});
 
 const handler = app.getRequestHandler();
-
 app.prepare().then(() => {
-  const server = express();
-  server.get('/hello', (req, res) => {
-    res.send('Hello Next.js')
-  });
-  server.get('*', (req, res) => {
-    handler(req, res)
-  });
-  server.listen(3000, () => console.log('服务器启动成功'));
-});
+    const server = express();
+    server.get('/hello', (req, res) => {
+        res.send('hello, this is a hidden page')
+    })
+    server.get('*', (req, res) => {
+        handler(req, res);
+    });
+
+    server.listen(3000, () => {
+        console.log('服务器已启动，端口3000')
+    })
+})

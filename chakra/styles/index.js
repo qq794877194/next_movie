@@ -16,7 +16,6 @@ const styles = {
     fontFeatureSettings: `"pnum"`,
     fontVariantNumeric: 'proportional-nums',
     fontSize: '12px',
-    color: "#202020"
   }),
 };
 
